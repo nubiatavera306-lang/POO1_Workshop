@@ -441,18 +441,18 @@ Rock crushes Scissors
         }
 
         switch (month) {
-            case 1: return day <= 19 ? "Capricornio" : "Acuario";
-            case 2: return day <= 18 ? "Acuario" : "Piscis";
-            case 3: return day <= 20 ? "Piscis" : "Aries";
-            case 4: return day <= 19 ? "Aries" : "Tauro";
-            case 5: return day <= 20 ? "Tauro" : "Géminis";
-            case 6: return day <= 20 ? "Géminis" : "Cáncer";
-            case 7: return day <= 22 ? "Cáncer" : "Leo";
+            case 1: return day <= 19 ? "Capricorn" : "Aquarius";
+            case 2: return day <= 18 ? "Aquarius" : "Pisces";
+            case 3: return day <= 20 ? "Pisces" : "Aries";
+            case 4: return day <= 19 ? "Aries" : "Taurus";
+            case 5: return day <= 20 ? "Taurus" : "Gemini";
+            case 6: return day <= 20 ? "Gemini" : "Cancer";
+            case 7: return day <= 22 ? "Cancer" : "Leo";
             case 8: return day <= 22 ? "Leo" : "Virgo";
             case 9: return day <= 22 ? "Virgo" : "Libra";
-            case 10: return day <= 22 ? "Libra" : "Escorpio";
-            case 11: return day <= 21 ? "Escorpio" : "Sagitario";
-            case 12: return day <= 21 ? "Sagitario" : "Capricornio";
+            case 10: return day <= 22 ? "Libra" : "Scorpio";
+            case 11: return day <= 21 ? "Scorpio" : "Sagittarius";
+            case 12: return day <= 21 ? "Sagittarius" : "Capricorn";
             default: return "Invalid Date";
         }
     }
