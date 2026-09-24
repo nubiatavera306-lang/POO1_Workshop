@@ -241,8 +241,9 @@ public class Workshop {
     public boolean esPalindromo(String cadena) {
         // TODO: Implementar el método para verificar si una cadena es un palíndromo.
         // Ejemplo: Si cadena = "madam", el resultado debería ser true.
-        String invertida = new StringBuilder(cadena).reverse().toString();
-        return cadena.equals(invertida);
+        String normalizada = cadena.toLowerCase().replaceAll("[^a-z0-9áéíóúñ]", "");
+        String invertida = new StringBuilder(normalizada).reverse().toString();
+        return normalizada.equals(invertida);
     }
 
     // Método que cuenta el número de palabras en una cadena
@@ -253,7 +254,14 @@ public class Workshop {
         if (cadenaRecortada.isEmpty()) {
             return 0;
         }
-        return cadenaRecortada.split("\\s+").length;
+        String[] palabras = cadenaRecortada.split("[^a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]+");
+        int contador = 0;
+        for (String palabra : palabras) {
+            if (!palabra.isEmpty()) {
+                contador++;
+            }
+        }
+        return contador;
     }
 
     // Método que convierte una cadena a mayúsculas
@@ -296,6 +304,9 @@ public class Workshop {
     public double promedioLista(List<Integer> lista) {
         // TODO: Implementar el método para calcular el promedio de una lista de números.
         // Ejemplo: Si lista = [1, 2, 3, 4, 5], el resultado debería ser 3.0.
+        if (lista == null || lista.isEmpty()) {
+            return 0.0;
+        }
         int suma = 0;
         for (int numero : lista) {
             suma += numero;
@@ -307,6 +318,9 @@ public class Workshop {
     public String convertirABinario(int numero) {
         // TODO: Implementar el método para convertir un número en su representación binaria.
         // Ejemplo: Si numero = 10, el resultado debería ser "1010".
+        if (numero < 0) {
+            return "-" + Integer.toBinaryString(-numero);
+        }
         return Integer.toBinaryString(numero);
     }
 
@@ -314,6 +328,9 @@ public class Workshop {
     public String convertirAHexadecimal(int numero) {
         // TODO: Implementar el método para convertir un número en su representación hexadecimal.
         // Ejemplo: Si numero = 255, el resultado debería ser "FF".
+        if (numero < 0) {
+            return "-" + Integer.toHexString(-numero).toUpperCase();
+        }
         return Integer.toHexString(numero).toUpperCase();
     }
 
@@ -359,7 +376,7 @@ public class Workshop {
                 return "Elección inválida";
         }
 
-        return usuarioGana ? "Ganaste (computadora eligió " + eleccionComputadora + ")" : "Perdiste (computadora eligió " + eleccionComputadora + ")";
+        return usuarioGana ? "Ganaste" : "Perdiste";
     }
 
     public String pptls2(String game[]) {
@@ -409,7 +426,7 @@ Rock crushes Scissors
                 return "Elección inválida";
         }
 
-        return jugador1Gana ? "Jugador 1" : "Jugador 2";
+        return jugador1Gana ? "Player 1" : "Player 2";
     }
 
     public double areaCirculo(double radio) {
@@ -417,6 +434,12 @@ Rock crushes Scissors
     }
 
     public String zoodiac(int day, int month) {
+        int[] diasPorMes = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+        if (month < 1 || month > 12 || day < 1 || day > diasPorMes[month - 1]) {
+            return "Invalid Date";
+        }
+
         switch (month) {
             case 1: return day <= 19 ? "Capricornio" : "Acuario";
             case 2: return day <= 18 ? "Acuario" : "Piscis";
@@ -430,7 +453,7 @@ Rock crushes Scissors
             case 10: return day <= 22 ? "Libra" : "Escorpio";
             case 11: return day <= 21 ? "Escorpio" : "Sagitario";
             case 12: return day <= 21 ? "Sagitario" : "Capricornio";
-            default: return "Mes inválido";
+            default: return "Invalid Date";
         }
     }
 
