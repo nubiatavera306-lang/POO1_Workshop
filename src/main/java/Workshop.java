@@ -1,6 +1,7 @@
 import java.util.List;
 
 public class Workshop {
+
     public static void main(String[] args) {
 
     }
@@ -157,6 +158,7 @@ public class Workshop {
 
         for (int i = 0; i < ordenado.length - 1; i++) {
             for (int j = 0; j < ordenado.length - 1 - i; j++) {
+
                 if (ordenado[j] > ordenado[j + 1]) {
                     int temporal = ordenado[j];
                     ordenado[j] = ordenado[j + 1];
@@ -233,7 +235,9 @@ public class Workshop {
         int desplazamiento = posiciones % longitud;
 
         for (int i = 0; i < longitud; i++) {
-            rotado[i] = arreglo[(i - desplazamiento + longitud) % longitud];
+            rotado[i] = arreglo[
+                    (i - desplazamiento + longitud) % longitud
+            ];
         }
 
         return rotado;
@@ -308,6 +312,7 @@ public class Workshop {
 
     // Método que calcula el promedio de una lista de números
     public double promedioLista(List<Integer> lista) {
+
         if (lista == null || lista.isEmpty()) {
             return 0.0;
         }
@@ -323,6 +328,7 @@ public class Workshop {
 
     // Método que convierte un número en su representación binaria
     public String convertirABinario(int numero) {
+
         if (numero < 0) {
             return "-" + Integer.toBinaryString(-numero);
         }
@@ -332,6 +338,7 @@ public class Workshop {
 
     // Método que convierte un número en su representación hexadecimal
     public String convertirAHexadecimal(int numero) {
+
         if (numero < 0) {
             return "-" + Integer.toHexString(-numero).toUpperCase();
         }
@@ -354,15 +361,19 @@ public class Workshop {
         int indiceAleatorio =
                 (int) (Math.random() * opciones.length);
 
-        String eleccionComputadora = opciones[indiceAleatorio];
+        String eleccionComputadora =
+                opciones[indiceAleatorio];
 
-        if (eleccionUsuario.equalsIgnoreCase(eleccionComputadora)) {
+        if (eleccionUsuario.equalsIgnoreCase(
+                eleccionComputadora)) {
+
             return "Empate";
         }
 
         boolean usuarioGana;
 
         switch (eleccionUsuario) {
+
             case "Piedra":
                 usuarioGana =
                         eleccionComputadora.equals("Tijera")
@@ -431,6 +442,7 @@ public class Workshop {
         boolean jugador1Gana;
 
         switch (jugador1) {
+
             case "R":
                 jugador1Gana =
                         jugador2.equals("S")
@@ -488,45 +500,69 @@ public class Workshop {
         }
 
         switch (month) {
+
             case 1:
-                return day <= 19 ? "Capricorn" : "Aquarius";
+                return day <= 19
+                        ? "Capricorn"
+                        : "Aquarius";
 
             case 2:
-                return day <= 18 ? "Aquarius" : "Pisces";
+                return day <= 18
+                        ? "Aquarius"
+                        : "Pisces";
 
             case 3:
-                return day <= 20 ? "Pisces" : "Aries";
+                return day <= 20
+                        ? "Pisces"
+                        : "Aries";
 
             case 4:
-                return day <= 19 ? "Aries" : "Taurus";
+                return day <= 19
+                        ? "Aries"
+                        : "Taurus";
 
             case 5:
-                return day <= 20 ? "Taurus" : "Gemini";
+                return day <= 20
+                        ? "Taurus"
+                        : "Gemini";
 
             case 6:
-                return day <= 20 ? "Gemini" : "Cancer";
+                return day <= 20
+                        ? "Gemini"
+                        : "Cancer";
 
             case 7:
-                return day <= 22 ? "Cancer" : "Leo";
+                return day <= 22
+                        ? "Cancer"
+                        : "Leo";
 
             case 8:
-                return day <= 22 ? "Leo" : "Virgo";
+                return day <= 22
+                        ? "Leo"
+                        : "Virgo";
 
             case 9:
-                return day <= 22 ? "Virgo" : "Libra";
+                return day <= 22
+                        ? "Virgo"
+                        : "Libra";
 
             case 10:
-                return day <= 22 ? "Libra" : "Scorpio";
+                return day <= 22
+                        ? "Libra"
+                        : "Scorpio";
 
             case 11:
-                return day <= 21 ? "Scorpio" : "Sagittarius";
+                return day <= 21
+                        ? "Scorpio"
+                        : "Sagittarius";
 
             case 12:
-                return day <= 21 ? "Sagittarius" : "Capricorn";
+                return day <= 21
+                        ? "Sagittarius"
+                        : "Capricorn";
 
             default:
                 return "Invalid Date";
         }
     }
 }
-
